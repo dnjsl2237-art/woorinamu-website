@@ -383,6 +383,20 @@ async function loadD1Products() {
     }));
 
     console.log('D1 상품 조회 성공:', dbProducts);
+    
+products = dbProducts.map(item => ({
+  id: 'db-' + item.id,
+  name: item.name,
+  type: item.category,
+  icon: item.category === '묘목' ? '🌱' : '🌳',
+  spec: item.specification,
+  price: item.price,
+  stock: item.stock,
+  desc: item.description
+}));
+
+render();
+
 
   } catch (error) {
     console.error('D1 상품 연결 오류:', error);
