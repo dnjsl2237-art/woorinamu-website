@@ -20,7 +20,15 @@ export default {
            ORDER BY id DESC`
         ).all();
 
-        return Response.json({ products: results });
+      return new Response(
+  JSON.stringify({ products: results }),
+  {
+    status: 200,
+    headers: {
+      "Content-Type": "application/json; charset=utf-8"
+    }
+  }
+);
       } catch (error) {
         console.error("상품 조회 오류", error);
         return Response.json(
