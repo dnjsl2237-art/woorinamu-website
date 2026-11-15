@@ -2,42 +2,356 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#234b36"><meta name="description" content="우리나무 조경수 및 묘목 상품 안내와 견적 문의">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>우리나무 | 조경수·묘목</title>
 <style>
-:root{--green:#234b36;--light:#edf4e9;--ink:#233329}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Noto Sans KR',Arial,sans-serif;color:var(--ink);background:#f8faf6}header{background:var(--green);color:white;padding:30px 18px;text-align:center}header h1{margin:0;font-size:30px}header p{margin:12px 0 0}nav{display:flex;justify-content:center;gap:22px;padding:16px;background:white;position:sticky;top:0;z-index:2;box-shadow:0 1px 6px #0001}nav a{color:var(--green);text-decoration:none;font-weight:700}.hero{padding:72px 18px;text-align:center;background:linear-gradient(135deg,#e0ecdb,#f2f6ee)}.hero h2{font-size:clamp(28px,6vw,44px);line-height:1.4;margin:0 0 16px}.hero p{font-size:18px}main{max-width:1080px;margin:auto}section{padding:42px 18px}h2{font-size:26px}.controls{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0}.controls input{flex:1 1 220px;padding:14px;border:1px solid #cad7c9;border-radius:10px;font-size:16px}.filters{display:flex;gap:8px}.filters button,.btn{border:0;border-radius:10px;padding:12px 16px;font-size:15px;font-weight:700;cursor:pointer}.filters button{background:#e2ebe0;color:var(--green)}.filters button.active,.btn{background:var(--green);color:white}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}.card{background:white;border-radius:16px;overflow:hidden;box-shadow:0 3px 16px #203b2414}.art{height:155px;display:grid;place-items:center;background:linear-gradient(135deg,#e2eddb,#f4f7ef);font-size:70px}.content{padding:20px}.tag{font-size:13px;color:#4c7455;font-weight:700}.content h3{margin:8px 0}.content p{color:#526257;line-height:1.6}.price{font-weight:800;margin:12px 0}.btn{display:inline-block;text-decoration:none;text-align:center}.about{background:#eaf2e7;line-height:1.9}.form{background:white;border-radius:16px;padding:22px;box-shadow:0 3px 16px #203b2414;max-width:650px}.form label{display:block;margin:14px 0 6px;font-weight:700}.form input,.form select,.form textarea{width:100%;border:1px solid #cbd6cb;border-radius:9px;padding:12px;font:inherit}.form textarea{min-height:110px;resize:vertical}.note{color:#5e6d60;font-size:14px;line-height:1.6}footer{text-align:center;background:var(--green);color:white;padding:25px 15px}dialog{border:0;border-radius:16px;max-width:440px;width:calc(100% - 32px);padding:25px;box-shadow:0 10px 40px #0004}dialog::backdrop{background:#0008}dialog p{line-height:1.7}@media(max-width:420px){nav{gap:14px;font-size:14px}.filters{width:100%}.filters button{flex:1}.hero{padding:55px 16px}}
+:root{--green:#234b36;--bg:#f6f9f4}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:#263a2c;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans KR",sans-serif}
+header{background:var(--green);color:white;text-align:center;padding:28px 16px}
+header h1{margin:0;font-size:30px}
+nav{position:sticky;top:0;background:white;display:flex;justify-content:center;gap:18px;padding:15px 8px;box-shadow:0 2px 8px #0001}
+nav a{font-size:14px;font-weight:700;color:var(--green);text-decoration:none}
+.hero{text-align:center;padding:52px 16px;background:#e6efe2}
+.hero h2{font-size:29px;line-height:1.4}
+main{max-width:1050px;margin:auto}
+section{padding:35px 17px}
+h2{font-size:24px}
+.muted{color:#657468;font-size:14px;line-height:1.7}
+.tools{display:flex;flex-wrap:wrap;gap:9px;margin:18px 0}
+input,select,textarea{font:inherit;border:1px solid #c8d7c8;border-radius:9px;padding:12px;max-width:100%}
+.tools input{flex:1 1 220px}
+button{border:0;border-radius:9px;padding:12px 15px;background:#e2ebe0;color:var(--green);font-weight:700;cursor:pointer}
+button.active,button.primary{background:var(--green);color:white}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:white;border-radius:15px;overflow:hidden;box-shadow:0 2px 12px #0001}
+.picture{height:145px;display:grid;place-items:center;background:#e9f1e4;font-size:65px}
+.inside{padding:18px}
+.inside h3{margin:8px 0}
+.inside p{line-height:1.6}
+.tag{color:#447a52;font-size:13px;font-weight:700}
+.stock{display:inline-block;background:#e5f3e5;border-radius:30px;padding:5px 10px;font-size:13px}
+.sold{background:#f8e5e5;color:#8c3030}
+.price{font-size:19px;font-weight:800;margin:12px 0}
+.panel{background:white;border-radius:15px;padding:20px;box-shadow:0 2px 12px #0001;max-width:720px}
+.panel label{display:block;font-weight:700;margin:13px 0 6px}
+.panel input,.panel select,.panel textarea{width:100%}
+.panel textarea{min-height:90px}
+.about{background:#e9f1e4}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.row>*{flex:1}
+.admin-item{border-top:1px solid #ddd;padding:12px 0;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.admin-item small{display:block;color:#68746b}
+#admin{border-top:2px dashed #b7c9b7}
+#adminForm,#adminTools{display:none}
+#adminForm.show,#adminTools.show{display:block}
+footer{background:var(--green);color:white;text-align:center;padding:24px}
+dialog{border:0;border-radius:15px;padding:24px;max-width:430px;width:calc(100% - 30px)}
+dialog::backdrop{background:#0009}
+dialog p{line-height:1.6}
 </style>
 </head>
 <body>
 <header><h1>🌳 우리나무</h1><p>조경수 · 묘목 전문 판매</p></header>
-<nav><a href="#products">판매 수목</a><a href="#about">업체 소개</a><a href="#contact">견적 문의</a></nav>
-<div class="hero"><h2>좋은 나무에서 시작되는<br>아름다운 공간</h2><p>묘목 한 그루부터 대량 조경수 납품까지</p><a class="btn" href="#products">상품 둘러보기</a></div>
+<nav>
+<a href="#products">판매 수목</a>
+<a href="#about">업체 소개</a>
+<a href="#contact">견적 문의</a>
+<a href="#admin">관리 안내</a>
+</nav>
+<div class="hero">
+<h2>좋은 나무에서 시작되는<br>아름다운 공간</h2>
+<p>조경수와 묘목을 한눈에 살펴보세요.</p>
+</div>
 <main>
-<section id="products"><h2>판매 수목</h2><p class="note">아래 수종은 상품 구성 예시입니다. 실제 판매 여부·규격·재고는 확인 후 안내합니다.</p><div class="controls"><input id="search" type="search" placeholder="수종 검색 (예: 소나무)" aria-label="수종 검색"><div class="filters"><button class="active" data-filter="전체">전체</button><button data-filter="조경수">조경수</button><button data-filter="묘목">묘목</button></div></div><div id="grid" class="grid"></div><p id="empty" hidden>검색 결과가 없습니다.</p></section>
-<section id="about" class="about"><h2>우리나무 소개</h2><p>우리나무는 조경수와 묘목에 대한 상담 및 견적 문의를 받는 공간입니다. 수종, 규격, 수량, 납품 조건에 따라 개별 견적을 안내합니다.</p></section>
-<section id="contact"><h2>견적 문의</h2><p class="note">문의 내용을 복사해 사용하시는 문자나 메신저로 전달해 주세요. 현재 홈페이지에서 문의가 자동 전송되지는 않습니다.</p><form id="quote" class="form"><label for="name">성함 또는 업체명</label><input id="name" required maxlength="80" placeholder="성함 또는 업체명"><label for="item">희망 수종</label><input id="item" required maxlength="100" placeholder="예: 소나무"><label for="type">상품 구분</label><select id="type"><option>조경수</option><option>묘목</option><option>상담 필요</option></select><label for="qty">희망 수량</label><input id="qty" required maxlength="60" placeholder="예: 10주"><label for="details">규격·납품 지역·기타 요청</label><textarea id="details" maxlength="1000" placeholder="예: 높이 2m, 서울 납품 희망"></textarea><button class="btn" type="submit">견적 문의 내용 복사</button><p id="status" role="status" class="note"></p></form></section>
+<section id="products">
+<h2>판매 수목</h2>
+<p class="muted">현재 상품은 예시입니다. 실제 판매 규격과 재고는 별도 확인이 필요합니다.</p>
+<div class="tools">
+<input id="search" placeholder="수종 검색" aria-label="수종 검색">
+<button class="active" data-filter="전체">전체</button>
+<button data-filter="조경수">조경수</button>
+<button data-filter="묘목">묘목</button>
+</div>
+<div id="cards" class="grid"></div>
+<p id="empty" hidden>해당하는 상품이 없습니다.</p>
+</section>
+<section id="about" class="about">
+<h2>우리나무 소개</h2>
+<p>조경수와 묘목을 안내하고 필요한 수종과 수량에 대한 견적 상담을 진행합니다.</p>
+</section>
+<section id="contact">
+<h2>견적 문의</h2>
+<div class="panel">
+<p class="muted">문의는 자동 전송되지 않습니다. 내용을 복사한 후 문자나 메신저로 보내주세요.</p>
+<form id="quote">
+<label for="customer">성함 또는 업체명</label>
+<input id="customer" required maxlength="80">
+<label for="wanted">희망 수종</label>
+<input id="wanted" required maxlength="100">
+<label for="quantity">희망 수량</label>
+<input id="quantity" required maxlength="40" placeholder="예: 10주">
+<label for="memo">납품 지역 및 요청사항</label>
+<textarea id="memo" maxlength="1000"></textarea>
+<p><button class="primary" type="submit">견적 문의 내용 복사</button></p>
+<p id="quoteStatus" class="muted" role="status"></p>
+<textarea id="copyFallback" hidden readonly></textarea>
+</form>
+</div>
+</section>
+<section id="admin">
+<h2>상품 관리 연습</h2>
+<div class="panel">
+<p class="muted"><strong>주의:</strong> 관리 기능은 로그인으로 보호되지 않습니다. 수정 내용은 현재 브라우저에만 저장되며 다른 고객에게 자동 반영되지 않습니다.</p>
+<button id="toggleAdmin" type="button">상품 관리 화면 열기</button>
+<div id="adminTools">
+<p class="muted">실제 영업 정보나 비밀번호는 입력하지 마세요.</p>
+<div class="row">
+<button id="newProduct" type="button">새 상품 추가</button>
+<button id="exportData" type="button">JSON 백업</button>
+<button id="resetData" type="button">예시 데이터 복원</button>
+</div>
+<form id="adminForm">
+<input type="hidden" id="editId">
+<label for="pname">상품명</label>
+<input id="pname" required maxlength="100">
+<label for="ptype">상품 분류</label>
+<select id="ptype"><option>조경수</option><option>묘목</option></select>
+<label for="pspec">규격 (H / R / B 등)</label>
+<input id="pspec" maxlength="150" placeholder="예: H 2m / R 8cm">
+<label for="pprice">가격 (원)</label>
+<input id="pprice" type="number" min="0" step="1" placeholder="비워두면 가격 문의">
+<label for="pstock">재고 수량</label>
+<input id="pstock" type="number" min="0" step="1" placeholder="비워두면 확인 필요">
+<label for="pdesc">상품 설명</label>
+<textarea id="pdesc" maxlength="500"></textarea>
+<p class="row">
+<button class="primary" type="submit">상품 저장</button>
+<button id="cancelEdit" type="button">취소</button>
+</p>
+</form>
+<div id="adminList"></div>
+</div>
+</div>
+</section>
 </main>
-<footer>© 2026 우리나무 · 조경수 및 묘목 견적 상담</footer>
-<dialog id="detail"><h2 id="detailTitle"></h2><p id="detailText"></p><p><strong>가격: 별도 문의</strong></p><button id="choose" class="btn">이 상품 견적 문의</button> <button id="close" class="btn" style="background:#67776b">닫기</button></dialog>
+<footer>© 2026 우리나무 · 조경수 및 묘목 안내</footer>
+<dialog id="detail">
+<h2 id="detailName"></h2>
+<p id="detailBody"></p>
+<p id="detailPrice"></p>
+<button id="selectProduct" class="primary">이 상품 견적 문의</button>
+<button id="closeDetail">닫기</button>
+</dialog>
 <script>
-// 실제 판매 수종·규격·재고 확인 후 이 목록을 수정하세요.
-const products=[
-{name:'소나무',type:'조경수',icon:'🌲',desc:'정원 및 경관 조성용 대표 수종'},
-{name:'반송',type:'조경수',icon:'🌲',desc:'수형을 감상하는 정원용 수종'},
-{name:'주목',type:'조경수',icon:'🌳',desc:'상록성 조경 식재용 수종'},
-{name:'단풍나무',type:'조경수',icon:'🍁',desc:'계절별 잎 색이 돋보이는 수종'},
-{name:'느티나무',type:'조경수',icon:'🌳',desc:'그늘 및 경관 조성용 수종'},
-{name:'이팝나무',type:'조경수',icon:'🌼',desc:'봄철 꽃이 아름다운 수종'},
-{name:'소나무 묘목',type:'묘목',icon:'🌱',desc:'소나무 식재용 어린 나무'},
-{name:'단풍나무 묘목',type:'묘목',icon:'🌱',desc:'단풍나무 식재용 어린 나무'},
-{name:'느티나무 묘목',type:'묘목',icon:'🌱',desc:'느티나무 식재용 어린 나무'},
-{name:'이팝나무 묘목',type:'묘목',icon:'🌱',desc:'이팝나무 식재용 어린 나무'}
-];
-const grid=document.querySelector('#grid'),search=document.querySelector('#search'),dialog=document.querySelector('#detail');let filter='전체',selected=null;
-function render(){const q=search.value.trim().toLocaleLowerCase('ko');const matches=products.filter(p=>(filter==='전체'||p.type===filter)&&p.name.toLocaleLowerCase('ko').includes(q));grid.replaceChildren();document.querySelector('#empty').hidden=matches.length>0;matches.forEach(p=>{const card=document.createElement('article');card.className='card';const art=document.createElement('div');art.className='art';art.textContent=p.icon;const body=document.createElement('div');body.className='content';const tag=document.createElement('div');tag.className='tag';tag.textContent=p.type;const title=document.createElement('h3');title.textContent=p.name;const desc=document.createElement('p');desc.textContent=p.desc;const price=document.createElement('div');price.className='price';price.textContent='가격 문의';const btn=document.createElement('button');btn.className='btn';btn.textContent='상품 상세';btn.addEventListener('click',()=>{selected=p;document.querySelector('#detailTitle').textContent=p.name;document.querySelector('#detailText').textContent=p.desc+' · 상세 규격과 재고는 상담 후 확인됩니다.';dialog.showModal()});body.append(tag,title,desc,price,btn);card.append(art,body);grid.append(card)})}
-document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>{filter=b.dataset.filter;document.querySelectorAll('[data-filter]').forEach(x=>x.classList.toggle('active',x===b));render()}));search.addEventListener('input',render);document.querySelector('#close').addEventListener('click',()=>dialog.close());document.querySelector('#choose').addEventListener('click',()=>{document.querySelector('#item').value=selected.name;document.querySelector('#type').value=selected.type;dialog.close();document.querySelector('#contact').scrollIntoView({behavior:'smooth'})});
-document.querySelector('#quote').addEventListener('submit',async e=>{e.preventDefault();const val=id=>document.getElementById(id).value.trim();const message=`[우리나무 견적 문의]\n성함/업체: ${val('name')}\n수종: ${val('item')}\n구분: ${val('type')}\n수량: ${val('qty')}\n요청사항: ${val('details')||'없음'}`;const status=document.querySelector('#status');try{await navigator.clipboard.writeText(message);status.textContent='문의 내용을 복사했습니다. 문자 또는 메신저에 붙여넣어 전송해 주세요.'}catch{status.textContent='자동 복사가 제한되었습니다. 아래 내용을 길게 눌러 복사하세요.';const area=document.createElement('textarea');area.readOnly=true;area.value=message;area.setAttribute('aria-label','복사할 문의 내용');status.replaceChildren(document.createTextNode('아래 내용을 복사해 전달하세요.'),area)}});render();
+const initial=[
+['소나무','조경수','🌲'],
+['반송','조경수','🌲'],
+['주목','조경수','🌳'],
+['단풍나무','조경수','🍁'],
+['느티나무','조경수','🌳'],
+['이팝나무','조경수','🌼'],
+['소나무 묘목','묘목','🌱'],
+['단풍나무 묘목','묘목','🌱'],
+['느티나무 묘목','묘목','🌱'],
+['이팝나무 묘목','묘목','🌱']
+].map((x,i)=>({
+id:'sample'+i,name:x[0],type:x[1],icon:x[2],
+spec:'',price:null,stock:null,desc:'수종 안내용 예시 상품'
+}));
+const key='woorinamu-v3-products';
+const $=s=>document.querySelector(s);
+let products;
+try{
+const saved=JSON.parse(localStorage.getItem(key));
+products=Array.isArray(saved)?saved:JSON.parse(JSON.stringify(initial));
+}catch{
+products=JSON.parse(JSON.stringify(initial));
+}
+let filter='전체';
+let selected=null;
+function save(){
+try{localStorage.setItem(key,JSON.stringify(products))}
+catch(e){alert('브라우저 저장에 실패했습니다. JSON 백업을 이용하세요.')}
+render();
+}
+function priceText(p){
+return p.price===null?'가격 문의':Number(p.price).toLocaleString('ko-KR')+'원';
+}
+function stockText(p){
+return p.stock===null?'재고 확인 필요':p.stock===0?'품절':'재고 '+p.stock+'주';
+}
+function el(tag,text,cls){
+const node=document.createElement(tag);
+if(text!==undefined)node.textContent=text;
+if(cls)node.className=cls;
+return node;
+}
+function render(){
+const q=$('#search').value.trim().toLowerCase();
+const list=products.filter(p=>
+(filter==='전체'||p.type===filter)&&p.name.toLowerCase().includes(q));
+const cards=$('#cards');
+cards.replaceChildren();
+$('#empty').hidden=list.length>0;
+list.forEach(p=>{
+const card=el('article',undefined,'card');
+const picture=el('div',p.icon||'🌱','picture');
+const body=el('div',undefined,'inside');
+const tag=el('div',p.type,'tag');
+const title=el('h3',p.name);
+const spec=el('p','규격: '+(p.spec||'문의'));
+const stock=el('span',stockText(p),'stock'+(p.stock===0?' sold':''));
+const price=el('div',priceText(p),'price');
+const btn=el('button','상품 상세');
+btn.type='button';
+btn.addEventListener('click',()=>openDetail(p.id));
+body.append(tag,title,spec,stock,price,btn);
+card.append(picture,body);
+cards.append(card);
+});
+renderAdmin();
+}
+function openDetail(id){
+selected=products.find(p=>p.id===id);
+if(!selected)return;
+$('#detailName').textContent=selected.name;
+$('#detailBody').textContent='분류: '+selected.type+
+'\n규격: '+(selected.spec||'문의')+
+'\n재고: '+stockText(selected)+
+'\n설명: '+(selected.desc||'별도 문의');
+$('#detailBody').style.whiteSpace='pre-line';
+$('#detailPrice').textContent=priceText(selected);
+$('#selectProduct').disabled=selected.stock===0;
+$('#detail').showModal();
+}
+$('#closeDetail').addEventListener('click',()=>$('#detail').close());
+$('#selectProduct').addEventListener('click',()=>{
+if(!selected)return;
+$('#wanted').value=selected.name+(selected.spec?' / '+selected.spec:'');
+$('#detail').close();
+$('#contact').scrollIntoView({behavior:'smooth'});
+});
+document.querySelectorAll('[data-filter]').forEach(btn=>{
+btn.addEventListener('click',()=>{
+filter=btn.dataset.filter;
+document.querySelectorAll('[data-filter]').forEach(b=>
+b.classList.toggle('active',b===btn));
+render();
+});
+});
+$('#search').addEventListener('input',render);
+$('#quote').addEventListener('submit',async e=>{
+e.preventDefault();
+const value=id=>$('#'+id).value.trim();
+const message='[우리나무 견적 문의]\n'+
+'성함/업체: '+value('customer')+'\n'+
+'희망 수종: '+value('wanted')+'\n'+
+'희망 수량: '+value('quantity')+'\n'+
+'요청사항: '+(value('memo')||'없음');
+try{
+await navigator.clipboard.writeText(message);
+$('#quoteStatus').textContent='복사 완료! 문자나 메신저에 붙여넣어 보내주세요.';
+$('#copyFallback').hidden=true;
+}catch{
+$('#quoteStatus').textContent='자동 복사가 제한되었습니다. 아래 내용을 직접 복사하세요.';
+$('#copyFallback').hidden=false;
+$('#copyFallback').value=message;
+}
+});
+$('#toggleAdmin').addEventListener('click',()=>{
+const opened=$('#adminTools').classList.toggle('show');
+$('#toggleAdmin').textContent=opened?'상품 관리 화면 닫기':'상품 관리 화면 열기';
+});
+function editProduct(id){
+const p=products.find(x=>x.id===id);
+if(!p)return;
+$('#editId').value=p.id;
+$('#pname').value=p.name;
+$('#ptype').value=p.type;
+$('#pspec').value=p.spec||'';
+$('#pprice').value=p.price===null?'':p.price;
+$('#pstock').value=p.stock===null?'':p.stock;
+$('#pdesc').value=p.desc||'';
+$('#adminForm').classList.add('show');
+$('#adminForm').scrollIntoView({behavior:'smooth'});
+}
+$('#newProduct').addEventListener('click',()=>{
+$('#adminForm').reset();
+$('#editId').value='';
+$('#adminForm').classList.add('show');
+$('#adminForm').scrollIntoView({behavior:'smooth'});
+});
+$('#cancelEdit').addEventListener('click',()=>{
+$('#adminForm').classList.remove('show');
+});
+$('#adminForm').addEventListener('submit',e=>{
+e.preventDefault();
+const id=$('#editId').value;
+const old=products.find(p=>p.id===id);
+const name=$('#pname').value.trim();
+if(!name)return;
+const price=$('#pprice').value.trim();
+const stock=$('#pstock').value.trim();
+const p={
+id:old?old.id:'p'+Date.now()+'-'+Math.random().toString(36).slice(2,7),
+name,
+type:$('#ptype').value,
+icon:old?old.icon:$('#ptype').value==='묘목'?'🌱':'🌳',
+spec:$('#pspec').value.trim(),
+price:price===''?null:Number(price),
+stock:stock===''?null:Number(stock),
+desc:$('#pdesc').value.trim()
+};
+if(old)products=products.map(x=>x.id===id?p:x);
+else products.push(p);
+save();
+$('#adminForm').classList.remove('show');
+});
+function renderAdmin(){
+const box=$('#adminList');
+box.replaceChildren();
+products.forEach(p=>{
+const row=el('div',undefined,'admin-item');
+const info=el('div');
+info.append(el('strong',p.name),el('small',p.type+' · '+stockText(p)));
+const actions=el('div');
+const edit=el('button','수정');
+edit.type='button';
+edit.addEventListener('click',()=>editProduct(p.id));
+const del=el('button','삭제');
+del.type='button';
+del.addEventListener('click',()=>{
+if(confirm(p.name+' 상품을 삭제할까요?')){
+products=products.filter(x=>x.id!==p.id);
+save();
+}
+});
+actions.append(edit,del);
+row.append(info,actions);
+box.append(row);
+});
+}
+$('#exportData').addEventListener('click',()=>{
+const blob=new Blob([JSON.stringify(products,null,2)],{type:'application/json'});
+const url=URL.createObjectURL(blob);
+const a=document.createElement('a');
+a.href=url;
+a.download='woorinamu-products.json';
+document.body.append(a);
+a.click();
+a.remove();
+setTimeout(()=>URL.revokeObjectURL(url),1000);
+});
+$('#resetData').addEventListener('click',()=>{
+if(confirm('이 브라우저의 상품 변경을 모두 지우고 예시 데이터로 되돌릴까요?')){
+products=JSON.parse(JSON.stringify(initial));
+save();
+}
+});
+render();
 </script>
-</body></html>
-  
+</body>
+</html>
