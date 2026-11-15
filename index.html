@@ -1,34 +1,43 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#234b36"><meta name="description" content="우리나무 조경수 및 묘목 상품 안내와 견적 문의">
 <title>우리나무 | 조경수·묘목</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f7faf5;color:#263b2c}
-header{background:#24583a;color:white;text-align:center;padding:25px}
-nav{text-align:center;padding:16px;background:white}
-nav a{color:#24583a;margin:8px;text-decoration:none}
-.hero{text-align:center;background:#e2eedf;padding:55px 20px}
-.hero h1{font-size:28px}
-section{max-width:950px;margin:auto;padding:28px 20px}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px}
-.card{background:white;padding:22px;border-radius:12px;box-shadow:0 2px 8px #ddd}
-footer{background:#24583a;color:white;text-align:center;padding:25px}
+:root{--green:#234b36;--light:#edf4e9;--ink:#233329}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Noto Sans KR',Arial,sans-serif;color:var(--ink);background:#f8faf6}header{background:var(--green);color:white;padding:30px 18px;text-align:center}header h1{margin:0;font-size:30px}header p{margin:12px 0 0}nav{display:flex;justify-content:center;gap:22px;padding:16px;background:white;position:sticky;top:0;z-index:2;box-shadow:0 1px 6px #0001}nav a{color:var(--green);text-decoration:none;font-weight:700}.hero{padding:72px 18px;text-align:center;background:linear-gradient(135deg,#e0ecdb,#f2f6ee)}.hero h2{font-size:clamp(28px,6vw,44px);line-height:1.4;margin:0 0 16px}.hero p{font-size:18px}main{max-width:1080px;margin:auto}section{padding:42px 18px}h2{font-size:26px}.controls{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0}.controls input{flex:1 1 220px;padding:14px;border:1px solid #cad7c9;border-radius:10px;font-size:16px}.filters{display:flex;gap:8px}.filters button,.btn{border:0;border-radius:10px;padding:12px 16px;font-size:15px;font-weight:700;cursor:pointer}.filters button{background:#e2ebe0;color:var(--green)}.filters button.active,.btn{background:var(--green);color:white}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}.card{background:white;border-radius:16px;overflow:hidden;box-shadow:0 3px 16px #203b2414}.art{height:155px;display:grid;place-items:center;background:linear-gradient(135deg,#e2eddb,#f4f7ef);font-size:70px}.content{padding:20px}.tag{font-size:13px;color:#4c7455;font-weight:700}.content h3{margin:8px 0}.content p{color:#526257;line-height:1.6}.price{font-weight:800;margin:12px 0}.btn{display:inline-block;text-decoration:none;text-align:center}.about{background:#eaf2e7;line-height:1.9}.form{background:white;border-radius:16px;padding:22px;box-shadow:0 3px 16px #203b2414;max-width:650px}.form label{display:block;margin:14px 0 6px;font-weight:700}.form input,.form select,.form textarea{width:100%;border:1px solid #cbd6cb;border-radius:9px;padding:12px;font:inherit}.form textarea{min-height:110px;resize:vertical}.note{color:#5e6d60;font-size:14px;line-height:1.6}footer{text-align:center;background:var(--green);color:white;padding:25px 15px}dialog{border:0;border-radius:16px;max-width:440px;width:calc(100% - 32px);padding:25px;box-shadow:0 10px 40px #0004}dialog::backdrop{background:#0008}dialog p{line-height:1.7}@media(max-width:420px){nav{gap:14px;font-size:14px}.filters{width:100%}.filters button{flex:1}.hero{padding:55px 16px}}
 </style>
 </head>
 <body>
-<header><h2>🌳 우리나무</h2><p>조경수 · 묘목 전문 판매</p></header>
+<header><h1>🌳 우리나무</h1><p>조경수 · 묘목 전문 판매</p></header>
 <nav><a href="#products">판매 수목</a><a href="#about">업체 소개</a><a href="#contact">견적 문의</a></nav>
-<div class="hero"><h1>좋은 나무에서 시작되는 아름다운 공간</h1><p>묘목 한 그루부터 대량 조경수 납품까지</p></div>
-<section id="products"><h2>판매 수목</h2><div class="products">
-<div class="card"><h3>🌲 소나무</h3><p>조경수 · 규격별 판매</p><b>견적 문의</b></div>
-<div class="card"><h3>🍁 단풍나무</h3><p>관상수 · 조경용</p><b>견적 문의</b></div>
-<div class="card"><h3>🌱 유실수 묘목</h3><p>과실수 · 묘목</p><b>가격 준비 중</b></div>
-</div></section>
-<section id="about"><h2>업체 소개</h2><p>건강하고 품질 좋은 나무를 소개합니다.</p></section>
-<section id="contact"><h2>구매 및 견적 문의</h2><p>상담 연락처와 견적 접수 기능은 준비 중입니다.</p></section>
-<footer>© 우리나무 · 조경수 및 묘목 전문</footer>
-</body>
-</html>
+<div class="hero"><h2>좋은 나무에서 시작되는<br>아름다운 공간</h2><p>묘목 한 그루부터 대량 조경수 납품까지</p><a class="btn" href="#products">상품 둘러보기</a></div>
+<main>
+<section id="products"><h2>판매 수목</h2><p class="note">아래 수종은 상품 구성 예시입니다. 실제 판매 여부·규격·재고는 확인 후 안내합니다.</p><div class="controls"><input id="search" type="search" placeholder="수종 검색 (예: 소나무)" aria-label="수종 검색"><div class="filters"><button class="active" data-filter="전체">전체</button><button data-filter="조경수">조경수</button><button data-filter="묘목">묘목</button></div></div><div id="grid" class="grid"></div><p id="empty" hidden>검색 결과가 없습니다.</p></section>
+<section id="about" class="about"><h2>우리나무 소개</h2><p>우리나무는 조경수와 묘목에 대한 상담 및 견적 문의를 받는 공간입니다. 수종, 규격, 수량, 납품 조건에 따라 개별 견적을 안내합니다.</p></section>
+<section id="contact"><h2>견적 문의</h2><p class="note">문의 내용을 복사해 사용하시는 문자나 메신저로 전달해 주세요. 현재 홈페이지에서 문의가 자동 전송되지는 않습니다.</p><form id="quote" class="form"><label for="name">성함 또는 업체명</label><input id="name" required maxlength="80" placeholder="성함 또는 업체명"><label for="item">희망 수종</label><input id="item" required maxlength="100" placeholder="예: 소나무"><label for="type">상품 구분</label><select id="type"><option>조경수</option><option>묘목</option><option>상담 필요</option></select><label for="qty">희망 수량</label><input id="qty" required maxlength="60" placeholder="예: 10주"><label for="details">규격·납품 지역·기타 요청</label><textarea id="details" maxlength="1000" placeholder="예: 높이 2m, 서울 납품 희망"></textarea><button class="btn" type="submit">견적 문의 내용 복사</button><p id="status" role="status" class="note"></p></form></section>
+</main>
+<footer>© 2026 우리나무 · 조경수 및 묘목 견적 상담</footer>
+<dialog id="detail"><h2 id="detailTitle"></h2><p id="detailText"></p><p><strong>가격: 별도 문의</strong></p><button id="choose" class="btn">이 상품 견적 문의</button> <button id="close" class="btn" style="background:#67776b">닫기</button></dialog>
+<script>
+// 실제 판매 수종·규격·재고 확인 후 이 목록을 수정하세요.
+const products=[
+{name:'소나무',type:'조경수',icon:'🌲',desc:'정원 및 경관 조성용 대표 수종'},
+{name:'반송',type:'조경수',icon:'🌲',desc:'수형을 감상하는 정원용 수종'},
+{name:'주목',type:'조경수',icon:'🌳',desc:'상록성 조경 식재용 수종'},
+{name:'단풍나무',type:'조경수',icon:'🍁',desc:'계절별 잎 색이 돋보이는 수종'},
+{name:'느티나무',type:'조경수',icon:'🌳',desc:'그늘 및 경관 조성용 수종'},
+{name:'이팝나무',type:'조경수',icon:'🌼',desc:'봄철 꽃이 아름다운 수종'},
+{name:'소나무 묘목',type:'묘목',icon:'🌱',desc:'소나무 식재용 어린 나무'},
+{name:'단풍나무 묘목',type:'묘목',icon:'🌱',desc:'단풍나무 식재용 어린 나무'},
+{name:'느티나무 묘목',type:'묘목',icon:'🌱',desc:'느티나무 식재용 어린 나무'},
+{name:'이팝나무 묘목',type:'묘목',icon:'🌱',desc:'이팝나무 식재용 어린 나무'}
+];
+const grid=document.querySelector('#grid'),search=document.querySelector('#search'),dialog=document.querySelector('#detail');let filter='전체',selected=null;
+function render(){const q=search.value.trim().toLocaleLowerCase('ko');const matches=products.filter(p=>(filter==='전체'||p.type===filter)&&p.name.toLocaleLowerCase('ko').includes(q));grid.replaceChildren();document.querySelector('#empty').hidden=matches.length>0;matches.forEach(p=>{const card=document.createElement('article');card.className='card';const art=document.createElement('div');art.className='art';art.textContent=p.icon;const body=document.createElement('div');body.className='content';const tag=document.createElement('div');tag.className='tag';tag.textContent=p.type;const title=document.createElement('h3');title.textContent=p.name;const desc=document.createElement('p');desc.textContent=p.desc;const price=document.createElement('div');price.className='price';price.textContent='가격 문의';const btn=document.createElement('button');btn.className='btn';btn.textContent='상품 상세';btn.addEventListener('click',()=>{selected=p;document.querySelector('#detailTitle').textContent=p.name;document.querySelector('#detailText').textContent=p.desc+' · 상세 규격과 재고는 상담 후 확인됩니다.';dialog.showModal()});body.append(tag,title,desc,price,btn);card.append(art,body);grid.append(card)})}
+document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>{filter=b.dataset.filter;document.querySelectorAll('[data-filter]').forEach(x=>x.classList.toggle('active',x===b));render()}));search.addEventListener('input',render);document.querySelector('#close').addEventListener('click',()=>dialog.close());document.querySelector('#choose').addEventListener('click',()=>{document.querySelector('#item').value=selected.name;document.querySelector('#type').value=selected.type;dialog.close();document.querySelector('#contact').scrollIntoView({behavior:'smooth'})});
+document.querySelector('#quote').addEventListener('submit',async e=>{e.preventDefault();const val=id=>document.getElementById(id).value.trim();const message=`[우리나무 견적 문의]\n성함/업체: ${val('name')}\n수종: ${val('item')}\n구분: ${val('type')}\n수량: ${val('qty')}\n요청사항: ${val('details')||'없음'}`;const status=document.querySelector('#status');try{await navigator.clipboard.writeText(message);status.textContent='문의 내용을 복사했습니다. 문자 또는 메신저에 붙여넣어 전송해 주세요.'}catch{status.textContent='자동 복사가 제한되었습니다. 아래 내용을 길게 눌러 복사하세요.';const area=document.createElement('textarea');area.readOnly=true;area.value=message;area.setAttribute('aria-label','복사할 문의 내용');status.replaceChildren(document.createTextNode('아래 내용을 복사해 전달하세요.'),area)}});render();
+</script>
+</body></html>
+  
