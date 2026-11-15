@@ -1,7 +1,17 @@
+
 {
   "name": "woorinamu-website",
   "compatibility_date": "2026-11-15",
+  "main": "worker.js",
   "assets": {
-    "directory": "."
-  }
+    "directory": ".",
+    "binding": "ASSETS"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "woorinamu-db",
+      "database_id": "8c29de3d-20ab-4f1f-ba8e-659883f9f2bb"
+    }
+  ]
 }
